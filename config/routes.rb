@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :recipes
+  resources :ingredients
+  resources :models
   resources :beers
   resources :trucs
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
