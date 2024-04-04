@@ -105,6 +105,8 @@ GEM
     drb (2.2.1)
     erubi (1.12.0)
     foreman (0.87.2)
+    formtastic (5.0.0)
+      actionpack (>= 6.0.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
     haml (6.3.0)
@@ -288,6 +290,8 @@ DEPENDENCIES
   capybara
   debug
   foreman
+  formtastic (~> 5.0)
+  haml
   haml-rails (~> 2.0)
   importmap-rails
   jbuilder

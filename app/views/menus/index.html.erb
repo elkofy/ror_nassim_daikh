@@ -9,6 +9,9 @@
   </div>
 
   <div id="menus" class="min-w-full">
+  <% if @menus.empty? %>
+    <p class="text-gray-500">No menus available.</p>
+  <% else %>
     <%= render @menus %>
-  </div>
+  <% end %>
 </div>
