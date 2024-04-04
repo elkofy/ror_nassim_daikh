@@ -1,16 +1,18 @@
 # == Schema Information
 #
-# Table name: trucs
+# Table name: notes
 #
 #  id         :integer          not null, primary key
-#  name       :string
+#  value      :integer
+#  beer_id    :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
-require "test_helper"
+class Note < ApplicationRecord
+  belongs_to :beer
 
-class TrucTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  def to_s
+    "#{value}"
+  end
+  
 end
