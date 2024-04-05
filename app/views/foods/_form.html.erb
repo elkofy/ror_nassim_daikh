@@ -1,10 +1,10 @@
-<%= form_with(model: model, class: "contents") do |form| %>
-  <% if model.errors.any? %>
+<%= form_with(model: food, class: "contents") do |form| %>
+  <% if food.errors.any? %>
     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
-      <h2><%= pluralize(model.errors.count, "error") %> prohibited this model from being saved:</h2>
+      <h2><%= pluralize(food.errors.count, "error") %> prohibited this food from being saved:</h2>
 
       <ul>
-        <% model.errors.each do |error| %>
+        <% food.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>
@@ -12,18 +12,13 @@
   <% end %>
 
   <div class="my-5">
-    <%= form.label :Ingredients %>
-    <%= form.text_field :Ingredients, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
     <%= form.label :name %>
     <%= form.text_field :name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="my-5">
-    <%= form.label :type %>
-    <%= form.text_field :type, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.label :category %>
+    <%= form.text_field :category, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="my-5">
