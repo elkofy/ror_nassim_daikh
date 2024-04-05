@@ -5,6 +5,20 @@
     <% end %>
 
     <%= render @recipe %>
+    <% if @recipe.ingredients.present? %>
+      <ul class="mt-5">
+        <% @recipe.ingredients.each do |ingredient| %>
+          <li class="py-2 px-3 bg-blue-50 mb-2 text-blue-500 font-medium rounded-lg">
+        <%= ingredient.food.name %>, <%= ingredient.food.category %>, <%= ingredient.food.price %>
+          </li>
+        <% end %>
+      </ul>
+      </ul>
+    <% end %>
+    <% unless @recipe.ingredients.present? %>
+      <p>No ingredients available.</p>
+    <% end %>
+  
 
     <%= link_to "Edit this recipe", edit_recipe_path(@recipe), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     <div class="inline-block ml-2">

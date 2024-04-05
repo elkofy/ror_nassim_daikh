@@ -10,5 +10,5 @@
 #
 class Recipe < ApplicationRecord
     has_many :ingredients
-    has_many :food, through: ingredients
+    has_many :food, through: :ingredients
 end

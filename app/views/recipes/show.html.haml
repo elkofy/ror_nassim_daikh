@@ -1,0 +1,17 @@
+.mx-auto.w-full.flex{:class => "md:w-2/3"}
+  .mx-auto
+    - if notice.present?
+      %p#notice.py-2.px-3.bg-green-50.mb-5.text-green-500.font-medium.rounded-lg.inline-block= notice
+    = render @recipe
+    - if @recipe.ingredients.present?
+      %ul.mt-5
+        - @recipe.ingredients.each do |ingredient|
+          %li.py-2.px-3.bg-blue-50.mb-2.text-blue-500.font-medium.rounded-lg
+            = ingredient.food.name
+            , #{ingredient.food.category}, #{ingredient.food.price}
+    - unless @recipe.ingredients.present?
+      %p No ingredients available.
+    = link_to "Edit this recipe", edit_recipe_path(@recipe), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium"
+    .inline-block.ml-2
+      = button_to "Destroy this recipe", recipe_path(@recipe), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium"
+    = link_to "Back to recipes", recipes_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium"
