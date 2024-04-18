@@ -3,10 +3,11 @@
 # Table name: ingredients
 #
 #  id         :integer          not null, primary key
+#  name       :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 class Ingredient < ApplicationRecord
-    belongs_to :food
-    belongs_to :recipe
+    has_many :recipe_ingredients
+    has_many :recipes, through: :recipe_ingredients
 end

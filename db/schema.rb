@@ -10,59 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_05_100645) do
-  create_table "beers", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.text "description"
-  end
-
-  create_table "foods", force: :cascade do |t|
-    t.string "name"
-    t.string "category"
-    t.float "price"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
+ActiveRecord::Schema[7.1].define(version: 2024_04_07_103429) do
   create_table "ingredients", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "recipe_id", null: false
-    t.integer "food_id", null: false
-    t.index ["food_id"], name: "index_ingredients_on_food_id"
-    t.index ["recipe_id"], name: "index_ingredients_on_recipe_id"
-  end
-
-  create_table "menus", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "notes", force: :cascade do |t|
-    t.integer "value"
-    t.integer "beer_id", null: false
+  create_table "recipe_ingredients", force: :cascade do |t|
+    t.float "amount"
+    t.text "description"
+    t.integer "recipe_id", null: false
+    t.integer "ingredient_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["beer_id"], name: "index_notes_on_beer_id"
+    t.index ["ingredient_id"], name: "index_recipe_ingredients_on_ingredient_id"
+    t.index ["recipe_id"], name: "index_recipe_ingredients_on_recipe_id"
   end
 
   create_table "recipes", force: :cascade do |t|
-    t.string "name"
-    t.text "description"
+    t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "trucs", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_foreign_key "ingredients", "foods"
-  add_foreign_key "ingredients", "recipes"
-  add_foreign_key "notes", "beers"
+  add_foreign_key "recipe_ingredients", "ingredients"
+  add_foreign_key "recipe_ingredients", "recipes"
 end

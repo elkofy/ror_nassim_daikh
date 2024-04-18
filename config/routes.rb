@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-  resources :foods
-  resources :menus
+  resources :recipe_ingredients
+  resources :ingredients do
+    collection do
+      get :search
+    end
+  end
   resources :recipes
-  resources :ingredients
-  resources :models
-  resources :beers
-  resources :trucs
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -13,5 +13,5 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   # Defines the root path route ("/")
-   root "menus#index"
+   root "recipes#index"
 end

@@ -14,6 +14,7 @@ class IngredientsTest < ApplicationSystemTestCase
     visit ingredients_url
     click_on "New ingredient"
 
+    fill_in "Name", with: @ingredient.name
     click_on "Create Ingredient"
 
     assert_text "Ingredient was successfully created"
@@ -24,6 +25,7 @@ class IngredientsTest < ApplicationSystemTestCase
     visit ingredient_url(@ingredient)
     click_on "Edit this ingredient", match: :first
 
+    fill_in "Name", with: @ingredient.name
     click_on "Update Ingredient"
 
     assert_text "Ingredient was successfully updated"

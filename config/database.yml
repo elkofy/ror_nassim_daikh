@@ -21,8 +21,5 @@ test:
   database: storage/test.sqlite3
 
 production:
-  adapter: postgresql
-  database: rails_db_d6h7
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: rails_db_d6h7_user
-  password: <%= ENV['DATABASE_PASSWORD'] %>
+  <<: *default
+  database: storage/production.sqlite3

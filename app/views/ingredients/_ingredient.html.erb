@@ -1,7 +1,4 @@
-<div id="<%= dom_id ingredient %>">
-  <% if action_name != "show" %>
-    <%= link_to "Show this ingredient", ingredient, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to "Edit this ingredient", edit_ingredient_path(ingredient), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
-  <% end %>
-</div>
+<a id="<%= dom_id ingredient %>"  href="/ingredients/<%= ingredient.id%>"class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+<h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><%= ingredient.name %></h5>
+
+</a>

@@ -1,0 +1,24 @@
+# == Schema Information
+#
+# Table name: recipe_ingredients
+#
+#  id            :integer          not null, primary key
+#  amount        :float
+#  description   :text
+#  recipe_id     :integer          not null
+#  ingredient_id :integer          not null
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#
+
+one:
+  amount: 1.5
+  description: MyText
+  recipe: one
+  ingredient: one
+
+two:
+  amount: 1.5
+  description: MyText
+  recipe: two
+  ingredient: two

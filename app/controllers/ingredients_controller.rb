@@ -47,6 +47,13 @@ class IngredientsController < ApplicationController
     end
   end
 
+  def search
+    @ingredients = Ingredient.where("name LIKE ?", "%#{params[:search]}%").order(created_at: :desc)
+    respond_to do |format|
+      format.json { render json: render_to_string(partial: 'ingredients/ingredient', collection: @ingredients, formats: [:html])}
+    end
+  end
+
   # DELETE /ingredients/1 or /ingredients/1.json
   def destroy
     @ingredient.destroy!
@@ -65,6 +72,6 @@ class IngredientsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def ingredient_params
-      params.fetch(:ingredient, {})
+      params.require(:ingredient).permit(:name)
     end
 end
