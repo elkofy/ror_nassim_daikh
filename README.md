@@ -1,24 +1,25 @@
-# README
+# One Pot Recipe
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Register all your one pot recipe.
+available here : https://ror-nassim-daikh.onrender.com/
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version 3.3.0
 
-* System dependencies
+* Yarn version 1.22.22
 
 * Configuration
+  
+  ``` bundle install ```
 
-* Database creation
+* DB
 
-* Database initialization
 
-* How to run the test suite
+  ```bin/rails db:migrate ```
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+* Start project
 
-* ...
+   ``` ./bin/dev ```
+  
